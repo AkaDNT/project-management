@@ -17,5 +17,8 @@
   "description": "",
   "devDependencies": {
     "turbo": "^2.5.5"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.13.0"
   }
 }
