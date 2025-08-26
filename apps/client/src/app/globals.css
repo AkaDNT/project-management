@@ -61,3 +61,23 @@ body,
   @apply bg-gray-500;
   @apply text-gray-900;
 }
+
+.timeline ._3lLk3 {
+  border-radius: 0.375rem;
+  border: 1px solid #e6e4e4;
+  border-right: 0;
+}
+.dark .timeline ._3lLk3 {
+  border-color: var(--color-stroke-dark);
+  background-color: #1f2937;
+}
+
+.dark .timeline ._2dZTy {
+  border-color: var(--color-stroke-dark);
+  background-color: #1f2937;
+  fill: var(--color-stroke-dark);
+}
+.dark .timeline ._35nLX {
+  border-color: var(--color-stroke-dark);
+  fill: var(--color-gray-700);
+}

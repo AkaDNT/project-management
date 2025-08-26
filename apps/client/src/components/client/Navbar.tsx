@@ -4,8 +4,8 @@ import { Menu, Moon, Search, Settings, Sun } from "lucide-react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/state/store";
-import { toggleDarkMode } from "@/state/themeSlice";
-import { toggleSidebarCollapsed } from "@/state/sidebarSlice";
+import { toggleDarkMode } from "@/state/slices/themeSlice";
+import { toggleSidebarCollapsed } from "@/state/slices/sidebarSlice";
 
 export default function Navbar() {
   const isDarkMode = useSelector((state: RootState) => state.theme.isDarkMode);

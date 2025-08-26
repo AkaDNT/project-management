@@ -1,5 +1,6 @@
 "use client";
-import { toggleSidebarCollapsed } from "@/state/sidebarSlice";
+import { useGetProjectsQuery } from "@/state/api";
+import { toggleSidebarCollapsed } from "@/state/slices/sidebarSlice";
 import { AppDispatch, RootState } from "@/state/store";
 import {
   AlertCircle,
@@ -29,13 +30,15 @@ const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(true);
   const [showPriority, setShowPriority] = useState(true);
 
+  const { data: projects } = useGetProjectsQuery();
+
   const dispatch = useDispatch<AppDispatch>();
   const isSidebarCollapsed = useSelector(
     (state: RootState) => state.sidebar.isSidebarCollapsed
   );
 
-  const sidebarClassNames = `flex flex-col h-screen justify-between shadow-xl
-    transition-all duration-300 h-full z-40 dark:bg-black overflow-y-auto bg-white
+  const sidebarClassNames = `flex flex-col min-h-screen justify-between shadow-xl
+    transition-all duration-300 h-full z-40 dark:bg-black bg-white
     ${isSidebarCollapsed ? "w-0 hidden" : "w-64"}
   `;
 
@@ -64,7 +67,7 @@ const Sidebar = () => {
           <Image src="/logo.png" alt="Logo" width={40} height={40} />
           <div>
             <h3 className="text-md font-bold tracking-wide dark:text-gray-200">
-              EDROH TEAM
+              AKADNT TEAM
             </h3>
             <div className="mt-1 flex items-start gap-2">
               <LockIcon className="mt-[0.1rem] h-3 w-3 text-gray-500 dark:text-gray-400" />
@@ -95,15 +98,15 @@ const Sidebar = () => {
           )}
         </button>
         {/* PROJECTS LIST */}
-        {/* {showProjects &&
+        {showProjects &&
           projects?.map((project) => (
             <SidebarLink
               key={project.id}
               icon={Briefcase}
               label={project.name}
               href={`/projects/${project.id}`}
-            />
-          ))} */}
+            ></SidebarLink>
+          ))}
 
         {/* PRIORITIES LINKS */}
         <button

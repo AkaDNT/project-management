@@ -1,12 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { themeReducer } from "./themeSlice";
-import { sidebarReducer } from "./sidebarSlice";
+import { themeReducer } from "./slices/themeSlice";
+import { sidebarReducer } from "./slices/sidebarSlice";
+import { api } from "./api";
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
     sidebar: sidebarReducer,
+    [api.reducerPath]: api.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
