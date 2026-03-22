@@ -34,7 +34,7 @@ const Sidebar = () => {
 
   const dispatch = useDispatch<AppDispatch>();
   const isSidebarCollapsed = useSelector(
-    (state: RootState) => state.sidebar.isSidebarCollapsed
+    (state: RootState) => state.sidebar.isSidebarCollapsed,
   );
 
   const sidebarClassNames = `flex flex-col min-h-screen justify-between shadow-xl
@@ -50,14 +50,14 @@ const Sidebar = () => {
           {/* Logo + tên team */}
           <div className="flex items-center gap-2">
             <span className="text-base font-bold text-gray-800 dark:text-white md:text-xl">
-              EDLIST
+              AkaDNT
             </span>
           </div>
 
           {/* Nút đóng sidebar (ẩn khi sidebar thu gọn) */}
           {!isSidebarCollapsed && (
             <button onClick={() => dispatch(toggleSidebarCollapsed())}>
-              <X className="h-6 w-6 text-gray-800 hover:text-gray-500 dark:text-white" />
+              <X className="h-6 w-6 text-gray-800 hover:text-gray-500 dark:text-white cursor-pointer" />
             </button>
           )}
         </div>
